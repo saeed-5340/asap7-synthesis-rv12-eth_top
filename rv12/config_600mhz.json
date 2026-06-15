@@ -1,0 +1,10 @@
+{
+    "DESIGN_NAME":           "riscv_core",
+    "VERILOG_FILES":         "dir::/openlane/designs/rv12/src/generated_rtl",
+    "CLOCK_PORT":            "clk_i",
+    "CLOCK_PERIOD":          1.667,
+    "PDK":                   "asap7",
+    "STD_CELL_LIBRARY":      "asap7sc7p5t_AO",
+    "SYNTH_STRATEGY":        "DELAY 0",
+    "MAX_FANOUT_CONSTRAINT": 8
+}
