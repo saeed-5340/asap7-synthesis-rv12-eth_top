@@ -1,0 +1,11 @@
+export PLATFORM        = asap7
+export DESIGN_NICKNAME = rv12_700mhz
+export DESIGN_NAME     = riscv_core
+export VERILOG_FILES   = $(sort $(wildcard ./designs/src/rv12/*.v))
+# export SYNTH_HDL_FRONTEND = slang
+# export SLANG_PLUGIN_PATH  =  /OpenROAD-flow-scripts/tools/install/yosys/share/yosys/plugins/slang.so
+export SDC_FILE        = ./designs/asap7/rv12/constraint_700mhz.sdc
+export DIE_AREA  = 0 0 1000 1000
+export CORE_AREA = 2 2 998 998
+export MAX_FANOUT = 8
+SYNTH_MEMORY_MAX_BITS = 8192
