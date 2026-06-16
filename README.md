@@ -35,10 +35,7 @@ git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scri
 
 ```bash
 cd /mnt/openlane_disk/ORFS
-docker run -dit \
-  --name orfs_main \
-  -v $(pwd)/flow:/OpenROAD-flow-scripts/flow \
-  openroad/orfs
+docker run -dit --name orfs_main -v $(pwd)/flow:/OpenROAD-flow-scripts/flow openroad/orfs
 ```
 
 ### 4. Enter container, make env auto-load every future exec
@@ -61,6 +58,7 @@ make gf180
 # add any other platform the same way:
 # make <platform_name>
 ```
+Not mandatory for this repository.
 
 ### 6. Verify the full toolchain end-to-end (don't skip)
 
@@ -83,4 +81,30 @@ For every new design from here on, you only need:
 docker exec -it orfs_main bash
 cd /OpenROAD-flow-scripts/flow
 make DESIGN_CONFIG=./designs/<platform>/<your_design>/config.mk
+```
+## Example:
+For ethmac (collect the RTL code and config file from the repo) 
+```
+ make DESIGN_CONFIG=./designs/asap7/ethmac/config_500.mk
+ make DESIGN_CONFIG=./designs/asap7/ethmac/config_600.mk
+ make DESIGN_CONFIG=./designs/asap7/ethmac/config_700.mk
+```
+For RV12 (collect the RTL code and config file from the repo) 
+```
+make DESIGN_CONFIG=./designs/asap7/rv12/config_500.mk
+make DESIGN_CONFIG=./designs/asap7/rv12/config_600.mk
+make DESIGN_CONFIG=./designs/asap7/rv12/config_700.mk
+```
+Note: Only synthesis the core section.
+
+collect the all report from:
+```
+/OpenROAD-flow-scripts/flow/results/asap7/
+```
+```
+/OpenROAD-flow-scripts/flow/reports/asap7/
+```
+and
+```
+/OpenROAD-flow-scripts/flow/logs/asap7/
 ```
