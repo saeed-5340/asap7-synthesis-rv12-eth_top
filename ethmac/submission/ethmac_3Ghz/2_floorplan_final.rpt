@@ -1,0 +1,218 @@
+
+==========================================================================
+floorplan final report_tns
+--------------------------------------------------------------------------
+tns max -104.05
+
+==========================================================================
+floorplan final report_wns
+--------------------------------------------------------------------------
+wns max -37.35
+
+==========================================================================
+floorplan final report_worst_slack
+--------------------------------------------------------------------------
+worst slack max -37.35
+
+==========================================================================
+floorplan final report_clock_min_period
+--------------------------------------------------------------------------
+wb_clk_i period_min = 371.35 fmax = 2692.90
+
+==========================================================================
+floorplan final report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: wishbone.Busy_IRQ_sync1$_DFF_P_
+            (rising edge-triggered flip-flop clocked by wb_clk_i)
+Endpoint: wishbone.Busy_IRQ_sync2$_DFF_P_
+          (rising edge-triggered flip-flop clocked by wb_clk_i)
+Path Group: wb_clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock wb_clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ wishbone.Busy_IRQ_sync1$_DFF_P_/CLK (DFFHQNx1_ASAP7_75t_R)
+     1    0.51   11.24   31.22   31.22 ^ wishbone.Busy_IRQ_sync1$_DFF_P_/QN (DFFHQNx1_ASAP7_75t_R)
+                                         _005772_ (net)
+                 11.24    0.00   31.22 ^ _107147_/A (INVx1_ASAP7_75t_R)
+     1    0.55    6.04    5.60   36.81 v _107147_/Y (INVx1_ASAP7_75t_R)
+                                         wishbone.Busy_IRQ_sync1 (net)
+                  6.04    0.00   36.81 v wishbone.Busy_IRQ_sync2$_DFF_P_/D (DFFHQNx1_ASAP7_75t_R)
+                                 36.81   data arrival time
+
+                  0.00    0.00    0.00   clock wb_clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ wishbone.Busy_IRQ_sync2$_DFF_P_/CLK (DFFHQNx1_ASAP7_75t_R)
+                          8.65    8.65   library hold time
+                                  8.65   data required time
+-----------------------------------------------------------------------------
+                                  8.65   data required time
+                                -36.81   data arrival time
+-----------------------------------------------------------------------------
+                                 28.16   slack (MET)
+
+
+
+==========================================================================
+floorplan final report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: wishbone.m_wb_adr_o[0]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by wb_clk_i)
+Endpoint: wishbone.m_wb_adr_o[28]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by wb_clk_i)
+Path Group: wb_clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock wb_clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ wishbone.m_wb_adr_o[0]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     4    2.52   24.90   43.64   43.64 v wishbone.m_wb_adr_o[0]$_DFFE_PP0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         _000097_ (net)
+                 24.90    0.00   43.64 v _079085_/A (INVx1_ASAP7_75t_R)
+     4    2.24   19.22   15.20   58.84 ^ _079085_/Y (INVx1_ASAP7_75t_R)
+                                         m_wb_adr_o[2] (net)
+                 19.22    0.00   58.84 ^ _107384_/B (HAxp5_ASAP7_75t_R)
+     5    3.43   40.19   24.19   83.03 v _107384_/CON (HAxp5_ASAP7_75t_R)
+                                         _010798_ (net)
+                 40.19    0.00   83.03 v _079140_/A (OR5x1_ASAP7_75t_R)
+     4    2.93   23.16   41.89  124.92 v _079140_/Y (OR5x1_ASAP7_75t_R)
+                                         _040848_ (net)
+                 23.16    0.00  124.92 v _079161_/B (OR3x2_ASAP7_75t_R)
+     5    3.82   16.67   32.34  157.26 v _079161_/Y (OR3x2_ASAP7_75t_R)
+                                         _040865_ (net)
+                 16.67    0.00  157.26 v _079230_/B (OR5x1_ASAP7_75t_R)
+     4    2.41   20.41   36.61  193.87 v _079230_/Y (OR5x1_ASAP7_75t_R)
+                                         _040918_ (net)
+                 20.41    0.00  193.87 v _079257_/A (OR5x1_ASAP7_75t_R)
+     4    3.42   25.32   38.36  232.23 v _079257_/Y (OR5x1_ASAP7_75t_R)
+                                         _040937_ (net)
+                 25.32    0.00  232.23 v _079291_/B (OR3x1_ASAP7_75t_R)
+     3    2.33   16.73   28.66  260.89 v _079291_/Y (OR3x1_ASAP7_75t_R)
+                                         _040963_ (net)
+                 16.73    0.00  260.89 v _079327_/A (OR4x1_ASAP7_75t_R)
+     1    0.92   11.35   25.36  286.25 v _079327_/Y (OR4x1_ASAP7_75t_R)
+                                         _040991_ (net)
+                 11.35    0.00  286.25 v _079328_/B (XNOR2x2_ASAP7_75t_R)
+     2    1.28    8.43   19.63  305.88 v _079328_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _040992_ (net)
+                  8.43    0.00  305.88 v _079331_/B (AO21x1_ASAP7_75t_R)
+     1    0.63    7.47   15.48  321.36 v _079331_/Y (AO21x1_ASAP7_75t_R)
+                                         _040995_ (net)
+                  7.47    0.00  321.36 v _079332_/B (OA21x2_ASAP7_75t_R)
+     1    0.65    7.28   12.15  333.51 v _079332_/Y (OA21x2_ASAP7_75t_R)
+                                         _040996_ (net)
+                  7.28    0.00  333.51 v _079334_/A2 (OA21x2_ASAP7_75t_R)
+     1    1.38    8.11   17.42  350.93 v _079334_/Y (OA21x2_ASAP7_75t_R)
+                                         _040998_ (net)
+                  8.11    0.00  350.93 v _079335_/B (OAI21x1_ASAP7_75t_R)
+     1    0.62   13.81    5.13  356.06 ^ _079335_/Y (OAI21x1_ASAP7_75t_R)
+                                         _011374_ (net)
+                 13.81    0.00  356.06 ^ wishbone.m_wb_adr_o[28]$_DFFE_PP0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                356.06   data arrival time
+
+                  0.00  334.00  334.00   clock wb_clk_i (rise edge)
+                          0.00  334.00   clock network delay (ideal)
+                          0.00  334.00   clock reconvergence pessimism
+                                334.00 ^ wishbone.m_wb_adr_o[28]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -15.28  318.72   library setup time
+                                318.72   data required time
+-----------------------------------------------------------------------------
+                                318.72   data required time
+                               -356.06   data arrival time
+-----------------------------------------------------------------------------
+                                -37.35   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: wishbone.m_wb_adr_o[0]$_DFFE_PP0P_
+            (rising edge-triggered flip-flop clocked by wb_clk_i)
+Endpoint: wishbone.m_wb_adr_o[28]$_DFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by wb_clk_i)
+Path Group: wb_clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock wb_clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ wishbone.m_wb_adr_o[0]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+     4    2.52   24.90   43.64   43.64 v wishbone.m_wb_adr_o[0]$_DFFE_PP0P_/QN (DFFASRHQNx1_ASAP7_75t_R)
+                                         _000097_ (net)
+                 24.90    0.00   43.64 v _079085_/A (INVx1_ASAP7_75t_R)
+     4    2.24   19.22   15.20   58.84 ^ _079085_/Y (INVx1_ASAP7_75t_R)
+                                         m_wb_adr_o[2] (net)
+                 19.22    0.00   58.84 ^ _107384_/B (HAxp5_ASAP7_75t_R)
+     5    3.43   40.19   24.19   83.03 v _107384_/CON (HAxp5_ASAP7_75t_R)
+                                         _010798_ (net)
+                 40.19    0.00   83.03 v _079140_/A (OR5x1_ASAP7_75t_R)
+     4    2.93   23.16   41.89  124.92 v _079140_/Y (OR5x1_ASAP7_75t_R)
+                                         _040848_ (net)
+                 23.16    0.00  124.92 v _079161_/B (OR3x2_ASAP7_75t_R)
+     5    3.82   16.67   32.34  157.26 v _079161_/Y (OR3x2_ASAP7_75t_R)
+                                         _040865_ (net)
+                 16.67    0.00  157.26 v _079230_/B (OR5x1_ASAP7_75t_R)
+     4    2.41   20.41   36.61  193.87 v _079230_/Y (OR5x1_ASAP7_75t_R)
+                                         _040918_ (net)
+                 20.41    0.00  193.87 v _079257_/A (OR5x1_ASAP7_75t_R)
+     4    3.42   25.32   38.36  232.23 v _079257_/Y (OR5x1_ASAP7_75t_R)
+                                         _040937_ (net)
+                 25.32    0.00  232.23 v _079291_/B (OR3x1_ASAP7_75t_R)
+     3    2.33   16.73   28.66  260.89 v _079291_/Y (OR3x1_ASAP7_75t_R)
+                                         _040963_ (net)
+                 16.73    0.00  260.89 v _079327_/A (OR4x1_ASAP7_75t_R)
+     1    0.92   11.35   25.36  286.25 v _079327_/Y (OR4x1_ASAP7_75t_R)
+                                         _040991_ (net)
+                 11.35    0.00  286.25 v _079328_/B (XNOR2x2_ASAP7_75t_R)
+     2    1.28    8.43   19.63  305.88 v _079328_/Y (XNOR2x2_ASAP7_75t_R)
+                                         _040992_ (net)
+                  8.43    0.00  305.88 v _079331_/B (AO21x1_ASAP7_75t_R)
+     1    0.63    7.47   15.48  321.36 v _079331_/Y (AO21x1_ASAP7_75t_R)
+                                         _040995_ (net)
+                  7.47    0.00  321.36 v _079332_/B (OA21x2_ASAP7_75t_R)
+     1    0.65    7.28   12.15  333.51 v _079332_/Y (OA21x2_ASAP7_75t_R)
+                                         _040996_ (net)
+                  7.28    0.00  333.51 v _079334_/A2 (OA21x2_ASAP7_75t_R)
+     1    1.38    8.11   17.42  350.93 v _079334_/Y (OA21x2_ASAP7_75t_R)
+                                         _040998_ (net)
+                  8.11    0.00  350.93 v _079335_/B (OAI21x1_ASAP7_75t_R)
+     1    0.62   13.81    5.13  356.06 ^ _079335_/Y (OAI21x1_ASAP7_75t_R)
+                                         _011374_ (net)
+                 13.81    0.00  356.06 ^ wishbone.m_wb_adr_o[28]$_DFFE_PP0P_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                356.06   data arrival time
+
+                  0.00  334.00  334.00   clock wb_clk_i (rise edge)
+                          0.00  334.00   clock network delay (ideal)
+                          0.00  334.00   clock reconvergence pessimism
+                                334.00 ^ wishbone.m_wb_adr_o[28]$_DFFE_PP0P_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -15.28  318.72   library setup time
+                                318.72   data required time
+-----------------------------------------------------------------------------
+                                318.72   data required time
+                               -356.06   data arrival time
+-----------------------------------------------------------------------------
+                                -37.35   slack (VIOLATED)
+
+
+
+==========================================================================
+floorplan final report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.80e-02   7.58e-04   1.43e-06   4.88e-02  69.6%
+Combinational          9.34e-03   1.20e-02   4.09e-06   2.13e-02  30.4%
+Clock                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.73e-02   1.27e-02   5.53e-06   7.01e-02 100.0%
+                          81.8%      18.2%       0.0%

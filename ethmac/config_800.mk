@@ -1,0 +1,9 @@
+export PLATFORM        = asap7
+export DESIGN_NICKNAME = ethmac_800
+export DESIGN_NAME     = ethmac
+export VERILOG_FILES   = $(sort $(wildcard $(DESIGN_HOME)/src/ethmac/*.v))
+export SDC_FILE        = ./designs/asap7/ethmac/constraint_800mhz.sdc
+export DIE_AREA        = 0 0 500 500
+export CORE_AREA       = 2 2 498 498
+export MAX_FANOUT      = 8
+export TNS_END_PERCENT = 100
